@@ -37,14 +37,14 @@ namespace AutofacModules.Framework
             //        .AsImplementedInterfaces();
             //}
 
-            //builder.RegisterType<Data.ProjectRepository>();
+            //builder.RegisterType<Data.ShoppingCartRepository>();
             //_container = builder.Build();
-            //var proj = _container.Resolve<Data.ProjectRepository>();
+            //var proj = _container.Resolve<Data.ShoppingCartRepository>();
 
-            //proj.Create(new Project()
+            //proj.Create(new ShoppingCartItem()
             //{
-            //    Id = 33,
-            //    Name = "Project 33"
+            //    userId = 99,
+            //    product = "laptop"
             //}
             //);
 
@@ -53,22 +53,9 @@ namespace AutofacModules.Framework
 
             var container = RegistrationModule.BuildContainer();
 
-            var projectRepository = container.Resolve<IProjectRepository>();
-            var taskRepository = container.Resolve<ITaskRepository>();
+            var shoppingCartRepository = container.Resolve<IShoppingCartRepository>();
 
-            var project = new Project()
-            {
-                Id = 1,
-                Name = "Project 1"
-            };
-            var task = new Task()
-            {
-                Id = 1,
-                Name = "Task 1"
-            };
-
-            projectRepository.Create(project);
-            taskRepository.Create(task);
+            shoppingCartRepository.Create(new ShoppingCartItem { userId = 1, product = "laptop" });
 
             Console.Read();
         }

@@ -10,14 +10,12 @@ namespace AutofacModules
             var builder = new ContainerBuilder();
 
             // delegate the registration to the module
-            builder.RegisterModule<ProjectModule>();
-            builder.RegisterModule<TaskModule>();
+            builder.RegisterModule<ShoppingCartModule>();
 
             //-OR 
 
             // register the types here
-            //builder.RegisterType<AutofacModules.Data.ProjectRepository>().As<AutofacModules.Abstraction.IProjectRepository>();
-            //builder.RegisterType<AutofacModules.Data.TaskRepository>().As<AutofacModules.Abstraction.ITaskRepository>();          
+            //builder.RegisterType<AutofacModules.Data.ShoppingCartRepository>().As<AutofacModules.Abstraction.IShoppingCartRepository>();          
 
             return builder.Build();
         }

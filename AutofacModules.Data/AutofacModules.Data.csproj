@@ -47,11 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\ProjectModule.cs" />
-    <Compile Include="Modules\TaskModule.cs" />
-    <Compile Include="ProjectRepository.cs" />
+    <Compile Include="Modules\ShoppingCartModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskRepository.cs" />
+    <Compile Include="ShoppingCartRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
