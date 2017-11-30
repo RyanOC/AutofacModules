@@ -14,45 +14,41 @@ namespace AutofacModules.Framework
     {
         static void Main(string[] args)
         {
+            IContainer container;
 
-            // test start reflection registration
+            // use reflection registration
 
-            //IContainer _container;
             //ContainerBuilder builder = new ContainerBuilder();
 
             //string[] assemblyScanerPattern = new[] { @"AutofacModules.*.dll" };
 
+            //// Make sure process paths are sane...
             //Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
+            //// Scan for assemblies containing autofac modules in the bin folder
             //List<Assembly> assemblies = new List<Assembly>();
             //assemblies.AddRange(
             //    Directory.EnumerateFiles(Directory.GetCurrentDirectory(), "AutofacModules.*.dll", SearchOption.AllDirectories)
-            //        .Where(filename => assemblyScanerPattern.Any(pattern => Regex.IsMatch(filename, pattern)))
-            //        .Select(Assembly.LoadFrom)
-            //);
+            //                .Where(filename => assemblyScanerPattern.Any(pattern => Regex.IsMatch(filename, pattern)))
+            //                .Select(Assembly.LoadFrom)
+            //    );
 
+            //// register the types
             //foreach (var assembly in assemblies)
             //{
             //    builder.RegisterAssemblyTypes(assembly)
             //        .AsImplementedInterfaces();
             //}
 
-            //builder.RegisterType<Data.ShoppingCartRepository>();
-            //_container = builder.Build();
-            //var proj = _container.Resolve<Data.ShoppingCartRepository>();
+            //container = builder.Build();
+            //var proj = container.Resolve<IShoppingCartRepository>();
 
-            //proj.Create(new ShoppingCartItem()
-            //{
-            //    userId = 99,
-            //    product = "laptop"
-            //}
-            //);
+            //proj.Create(new ShoppingCartItem() { userId = 99, product = "laptop" });
 
-            //// end
+            // end
 
 
-            var container = RegistrationModule.BuildContainer();
-
+            container = RegistrationModule.BuildContainer();
             var shoppingCartRepository = container.Resolve<IShoppingCartRepository>();
 
             shoppingCartRepository.Create(new ShoppingCartItem { userId = 1, product = "laptop" });
